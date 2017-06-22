@@ -1,0 +1,39 @@
+<!Doctype html>
+<html>
+
+<head>
+  <title>{{ site.name }} | {{ site.tagline }}</title>
+  <meta name="description" content="{{ site.description }}"/>
+  {% include header.html %}
+</head>
+
+<body>
+  <div id="fh5co-aside" style="background-image: url(images/cover.jpg)">
+    <div class="overlay"></div>
+    <div class="featured">
+      <span>Bio</span>
+      <h2><a href="http://devdutt.ga">Devdutt</a> here is a Student, Programmer, Blogger, Photographer and what not..</h2>
+    </div>
+  </div>
+  <div class="row">
+    {% for post in site.posts %}
+    <div class="card">
+        <div class="wrapper" style="background :linear-gradient(to right, rgba(0,0,0,0.51) 0%, rgba(19,19,19,0.51) 0%, rgba(43,43,43,0.5) 100%), url({{ post.featured }})!important">
+            <div class="header">
+                <div class="date">{{ post.date }}</div>
+            </div>
+            <div class="data">
+                <div class="content">
+                    <span class="author">{{ site.author }}</span>
+                    <h1 class="title"><a href="{{ post.url }}">{{ post.title }}</a></h1>
+                    <p class="text">{{ post.info }}.</p>
+                    <a href="{{ post.url }}" class="button">Read more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+# Site Details
+name: BEARly Speaking
+description: Devdutt blogs about anything that intrigues him, not only in the coding world, but some...
+tagline: 'because we are coding!'
+url: 'http://blog.devdutt.ga'
+
+# About Author
+author:
+  name: Devdutt Shenoi
+  twitter: DevduttShenoi
+  GitHub: Devdutt-Shenoi
+
+# Build Configuration
+destination: _build
+permalink: /:categories/:short_year-:month/:title/
+exclude: []
+include: []
+incremental: true
+rss: feed.xml
+port: 9926
+
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: "default"
+
+# Base URLs
+baseurl: '/'
+baseurl_posts_img:   '/assets/images/posts/'
+baseurl_featured_img: '/assets/images/hero/'
+baseurl_featured_thumbnail: '/assets/images/thumbnail/'
