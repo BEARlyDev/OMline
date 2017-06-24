@@ -7,6 +7,7 @@ url: 'http://blog.devdutt.ga'
 # About Author
 author:
   name: Devdutt Shenoi
+  url: "http://devdutt.ga"
   twitter: DevduttShenoi
   GitHub: Devdutt-Shenoi
 
@@ -28,6 +29,7 @@ defaults:
 
 # Base URLs
 baseurl: '/'
-baseurl_posts_img:   '/assets/images/posts/'
-baseurl_featured_img: '/assets/images/hero/'
-baseurl_featured_thumbnail: '/assets/images/thumbnail/'
+baseurl_posts_img:   '/images/'
+baseurl_featured_img: '/images/'
+baseurl_featured_thumbnail: '/images/thumb/'
+baseurl_javascript: '/js/'

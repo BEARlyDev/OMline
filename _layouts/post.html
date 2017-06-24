@@ -1,30 +1,26 @@
-<!Doctype html>
-<html>
+---
+layout: default
+---
 
-<head>
-  {% include header.html %}
-</head>
-
-<body class="single">
   <div id="page">
-    <div id="fh5co-aside" style="background-image: url({{ post.featured }})" data-stellar-background-ratio="0.5">
+    <div id="fh5co-aside" style="background-image: url({{ page.image.feature | prepend: site.baseurl_featured_img }})" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <nav role="navigation">
         <ul>
-          <li><a href="../index.html"><i class="icon-home"></i></a></li>
+          <li><a href="{{ site.baseurl }}"><i class="icon-home"></i></a></li>
         </ul>
       </nav>
       <div class="page-title">
         <img src="http://devdutt.ga/images/avatar.jpg" alt="Devdutt Shenoi">
-        <span>{{ post.date }}</span>
-        <h2>{{ post.title }}</h2>
+        <span>{{ page.date | date_to_string }}</span>
+        <h2>{{ page.title }}</h2>
       </div>
     </div>
     <div id="fh5co-main-content">
       <div class="fh5co-post">
         <div class="fh5co-entry padding">
           <div>
-
+            {{ content }}
           </div>
 
           <div class="disqus">
@@ -35,21 +31,23 @@
     </div>
 
     <div class="fh5co-navigation">
-
-      <div class="fh5co-cover next fh5co-cover-sm" style="background-image: url(../images/cppbot.jpg)">
+      {% if page.previous.url %}
+      <div class="fh5co-cover next fh5co-cover-sm" style="background-image: url( {{ page.previous.image.thumb | prepend: site.baseurl_featured_img }} )">
         <div class="overlay"></div>
-        <a class="copy" href="cpp_chatbot.html">
+        <a class="copy" href="{{ page.previous.url }}">
           <div class="display-t">
             <div class="display-tc">
               <div>
-                <span>Next Post</span>
-                <h2>How to build a Chatbot in C++</h2>
+                <span>Previous page</span>
+                <h2>{{ page.previous.title }}</h2>
               </div>
             </div>
           </div>
         </a>
       </div>
-      <div class="fh5co-cover prev fh5co-cover-sm" style="background-image: url(https://cdn-images-1.medium.com/max/800/0*7Lxlqlw_35wxFGIi.png)">
+      {% endif %}
+      {% if page.next.url %}
+      <div class="fh5co-cover prev fh5co-cover-sm" style="background-image: url({ page.next.image.thumb | prepend: site.baseurl_featured_img })">
         <div class="overlay"></div>
         <a class="copy" href="https://geekhub.ga/codes-are-magic-spells-7197dd63e6b1#.yiiianvb2">
           <div class="display-t">
@@ -62,6 +60,7 @@
           </div>
         </a>
       </div>
+      {% endif %}
     </div>
   </div>
 
@@ -73,139 +72,4 @@
     <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
   </div>
 
-  <script type="text/javascript">
-    ;
-    (function() {
-
-      'use strict';
-
-      var isMobile = {
-        Android: function() {
-          return navigator.userAgent.match(/Android/i);
-        },
-        BlackBerry: function() {
-          return navigator.userAgent.match(/BlackBerry/i);
-        },
-        iOS: function() {
-          return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-        },
-        Opera: function() {
-          return navigator.userAgent.match(/Opera Mini/i);
-        },
-        Windows: function() {
-          return navigator.userAgent.match(/IEMobile/i);
-        },
-        any: function() {
-          return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-        }
-      };
-
-
-
-
-      var contentWayPoint = function() {
-        var i = 0;
-        $('.animate-box').waypoint(function(direction) {
-
-          if (direction === 'down' && !$(this.element).hasClass('animated-fast')) {
-
-            i++;
-
-            $(this.element).addClass('item-animate');
-            setTimeout(function() {
-
-              $('body .animate-box.item-animate').each(function(k) {
-                var el = $(this);
-                setTimeout(function() {
-                  var effect = el.data('animate-effect');
-                  if (effect === 'fadeIn') {
-                    el.addClass('fadeIn animated-fast');
-                  } else if (effect === 'fadeInLeft') {
-                    el.addClass('fadeInLeft animated-fast');
-                  } else if (effect === 'fadeInRight') {
-                    el.addClass('fadeInRight animated-fast');
-                  } else {
-                    el.addClass('fadeInUp animated-fast');
-                  }
-
-                  el.removeClass('item-animate');
-                }, k * 50, 'easeInOutExpo');
-              });
-
-            }, 100);
-
-          }
-
-        }, {
-          offset: '85%'
-        });
-      };
-
-
-
-
-      var goToTop = function() {
-
-        $('.js-gotop').on('click', function(event) {
-
-          event.preventDefault();
-
-          $('html, body').animate({
-            scrollTop: $('html').offset().top
-          }, 500, 'easeInOutExpo');
-
-          return false;
-        });
-
-        $(window).scroll(function() {
-
-          var $win = $(window);
-          if ($win.scrollTop() > 200) {
-            $('.js-top').addClass('active');
-          } else {
-            $('.js-top').removeClass('active');
-          }
-
-        });
-
-      };
-
-
-      // Loading page
-      var loaderPage = function() {
-        $(".fh5co-loader").fadeOut("slow");
-      };
-
-
-      var parallax = function() {
-
-        if (!isMobile.any()) {
-          $(window).stellar({
-            horizontalScrolling: false,
-            hideDistantElements: false,
-            responsive: true
-
-          });
-        }
-      };
-
-
-      $(function() {
-        contentWayPoint();
-
-        goToTop();
-        loaderPage();
-        parallax();
-      });
-
-
-    }());
-
-    $.disqusLoader('.disqus', {
-      scriptUrl: '//username.disqus.com/embed.js'
-    });
-  </script>
-
-</body>
-
-</html>
+  <script src="{{ site.baseurl }}/main.js" charset="utf-8"></script>
