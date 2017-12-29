@@ -2,12 +2,13 @@
 layout: default
 ---
 
+<body class="single">
   <div id="page">
-    <div id="fh5co-aside" style="background-image: url({{ page.image.feature | prepend: site.baseurl_featured_img }})" data-stellar-background-ratio="0.5">
+    <div id="aside" style="background-image: url({{ site.baseurl_featured_img }}feature_{{ page.image }})" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <nav role="navigation">
         <ul>
-          <li><a href="{{ site.baseurl }}"><i class="icon-home"></i></a></li>
+          <li><a href="{{ site.baseurl }}"><i class="icon-home">🏠</i></a></li>
         </ul>
       </nav>
       <div class="page-title">
@@ -16,9 +17,9 @@ layout: default
         <h2>{{ page.title }}</h2>
       </div>
     </div>
-    <div id="fh5co-main-content">
-      <div class="fh5co-post">
-        <div class="fh5co-entry padding">
+    <div id="main-content">
+      <div class="post">
+        <div class="entry padding">
           <div>
             {{ content }}
           </div>
@@ -30,9 +31,9 @@ layout: default
       </div>
     </div>
 
-    <div class="fh5co-navigation">
+    <div class="-navigation">
       {% if page.previous.url %}
-      <div class="fh5co-cover next fh5co-cover-sm" style="background-image: url( {{ page.previous.image.thumb | prepend: site.baseurl_featured_img }} )">
+      <div class="cover next cover-sm" style="background-image: url( {{ page.previous.image.thumb | prepend: site.baseurl_featured_img }} )">
         <div class="overlay"></div>
         <a class="copy" href="{{ page.previous.url }}">
           <div class="display-t">
@@ -45,9 +46,8 @@ layout: default
           </div>
         </a>
       </div>
-      {% endif %}
-      {% if page.next.url %}
-      <div class="fh5co-cover prev fh5co-cover-sm" style="background-image: url({ page.next.image.thumb | prepend: site.baseurl_featured_img })">
+      {% endif %} {% if page.next.url %}
+      <div class="cover prev -cover-sm" style="background-image: url({ page.next.image.thumb | prepend: site.baseurl_featured_img })">
         <div class="overlay"></div>
         <a class="copy" href="https://geekhub.ga/codes-are-magic-spells-7197dd63e6b1#.yiiianvb2">
           <div class="display-t">
@@ -62,11 +62,12 @@ layout: default
       </div>
       {% endif %}
     </div>
+    <footer>
+      {% include footer.html %}
+    </footer>
   </div>
 
-  <footer>
-    {% include footer.html %}
-  </footer>
+
 
   <div class="gototop js-top">
     <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>

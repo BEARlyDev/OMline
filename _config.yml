@@ -1,15 +1,10 @@
 # Site Details
 name: BEARly Speaking
 description: Devdutt blogs about anything that intrigues him, not only in the coding world, but some...
-tagline: 'because we are coding!'
-url: 'http://blog.devdutt.ga'
+tagline: 'Because we are coding!'
+url: 'http://blog.devdutt.ga/'
 
-# About Author
-author:
-  name: Devdutt Shenoi
-  url: "http://devdutt.ga"
-  twitter: DevduttShenoi
-  GitHub: Devdutt-Shenoi
+# About Author is provided in _data/authors.yml
 
 # Build Configuration
 destination: _build
@@ -29,7 +24,8 @@ defaults:
 
 # Base URLs
 baseurl: '/'
-baseurl_posts_img:   '/images/'
-baseurl_featured_img: '/images/'
+baseurl_img:   '/images/'
+baseurl_featured_img: '/images/feature/'
 baseurl_featured_thumbnail: '/images/thumb/'
 baseurl_javascript: '/js/'
+baseurl_css: '/css/'
