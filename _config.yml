@@ -1,8 +1,9 @@
 # Site Details
 name: BEARly Speaking
-description: Devdutt blogs about anything that intrigues him, not only in the coding world, but some...
+title: OMline
+description: A theme for the students, the writers and many other people...
 tagline: 'Because we are coding!'
-url: 'http://blog.devdutt.ga/'
+url: 'http://devdutt.ga/OMline'
 
 # About Author is provided in _data/authors.yml
 
@@ -29,3 +30,5 @@ baseurl_featured_img: '/images/feature/'
 baseurl_featured_thumbnail: '/images/thumb/'
 baseurl_javascript: '/js/'
 baseurl_css: '/css/'
+
+theme: jekyll-theme-OMline
